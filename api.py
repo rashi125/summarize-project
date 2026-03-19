@@ -1,9 +1,10 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
+import os
 
 from main import extractive_summary, abstractive_summary
-
+os.environ["TRANSFORMERS_CACHE"] = "/tmp"
 app = FastAPI()
 
 app.add_middleware(
